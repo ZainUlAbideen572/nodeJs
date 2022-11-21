@@ -12,18 +12,25 @@ const fullstackmodel=require('./../models/fullstackmodel')
  }
  const update=(id,data)=>{
 
-    return fullstackmodel.updateOne({_id:id},{$set:{
+    return fullstackmodel.update({_id:id},{$set:{
         Name:data.Name,
         fees:data.fees,
         tech:data.tech
-    }
+    }})
 
-    })
+
+}
+
+const patch=(id,data)=>{
+    delete data._id;
+    const updateobj={};
+    for(let key in updateobj){
+        updateobj[key]=data[key]
+    }
+    return fullstackmodel.updateOne({_id:id},{$set:updateobj})
 }
 
 
-
-
  module.exports={
-    get,save,remove,update
+    get,save,remove,update,patch
  }

@@ -5,4 +5,5 @@ router.get('/',fullstackctrl.get)
 router.post('/',fullstackctrl.post)
 router.delete('/:id',fullstackctrl.remove)
 router.put('/:id',fullstackctrl.put)
+router.patch('/:id',fullstackctrl.patch)
 module.exports=router;

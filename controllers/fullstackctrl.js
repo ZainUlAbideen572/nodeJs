@@ -25,5 +25,12 @@ class fullstackctrl{
     res.status(200)
     res.json('')
   }
+ async patch(req,res){
+  const data=req.body
+  const id=req.params.id
+  await fullstackrepository.update(id,data)
+  res.status(200)
+  res.send('')
+  }
 }
 module.exports=new fullstackctrl();

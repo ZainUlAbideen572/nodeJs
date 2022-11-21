@@ -2,11 +2,14 @@ const films=[
     {id:1,name:'srk',number:80},
     {id:2,name:'sk',number:70},
     {id:3,name:'aamir',number:30},
-
+    
+    
 ]
+const applogger=require('./../utils/applogger')
 const home=(req,res)=>{
+    applogger.info('home ctrl is called')
     res.status(200);
-    res.send('three khans of bollywood')
+    res.send('hello')
 }
 const get=(req,res)=>{
     res.status(200)
