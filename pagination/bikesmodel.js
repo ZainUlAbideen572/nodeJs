@@ -5,5 +5,5 @@ const schema=new mongoose.Schema({
     discount:Number,
     company:String
 })
-const model=new mongoose.model('bike',schema)
-module.exports=model
+const bikesmodel= mongoose.model('bike',schema)
+module.exports=bikesmodel
