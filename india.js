@@ -4,7 +4,6 @@ const mongoose=require('mongoose')
 mongoose.connect(' mongodb://127.0.0.1:27017/country',()=>{
     console.log('connected to db')
 })
-const bodyparser=require('body-parser')
 const indiaroutes=require('./routes/indiaroutes')
 const port=4000;
 app.use(express.json())
