@@ -4,5 +4,5 @@ const schema=new mongoose.Schema({
     assests:{type:Number},
     origin:{type:String}
 })
-const model=new mongoose.model('company',schema)
+const model=new mongoose.model('Itcompany',schema)
 module.exports=model;
