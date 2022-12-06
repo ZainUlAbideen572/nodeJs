@@ -1,10 +1,10 @@
 const companyrpstry=require('../repository/companyrpstry')
 const read=async(req,res)=>{
-    const page=+req.params.page
-    const limit=+req.params.limit
+    const page=+req.params.page||1
+    const limit=+req.params.limit||10
     const sort=req.query.sort
     const direction=req.query.direction||1
-    const search=req.query.search||1
+    const search=req.query.search||''
     const options={
       page,limit,sort,direction,search
     }
@@ -15,6 +15,7 @@ const read=async(req,res)=>{
         data
      }
   res.json(response)
+  res.status(200)
 }
 const post=async(req,res)=>{
     await companyrpstry.create (req.body)
@@ -41,5 +42,5 @@ const modifyone=async(req,res)=>{
      res.status(200).send('')
 }
 module.exports={
-    read,post,rrr,modify,modifyone
+    read,post,rrr,modify,modifyone,
 }

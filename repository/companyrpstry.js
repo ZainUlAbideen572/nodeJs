@@ -21,7 +21,7 @@ const sortbydirection=(direction)=>{
 }
 const get=(options)=>{
     const {page,limit,search,sort,direction}=options
-    const rowstoskip=(page-1)*14
+    const rowstoskip=(page-1)*5
     const filter={
         $or:[
             {Name:search},
@@ -47,6 +47,7 @@ const create=(data)=>{
     const product=new companymodel(data)
     return product.save()
 }
+
 const remove=(id)=>{
     return companymodel.remove({_id:id});
 
@@ -66,6 +67,7 @@ const patch=(id,data)=>{
     }
     return companymodel.updateOne({_id:id},{$set:updateobj})
 }
+
 module.exports={
     get,create,remove,update,patch,getcount
 }

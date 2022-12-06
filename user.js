@@ -8,12 +8,14 @@ mongoose.connect('mongodb://127.0.0.1:27017/users',()=>{
 const port=5000;
 // const auth=require('./utils/Auth')
 const userroutes=require('./routes/userroute')
+const credroutes=require('./routes/credsroutes')
 app.use(express.json())
 // app.use(auth.tokenAuth)
  
 //  app.use(auth.basicauth)
 //  for everyproduct or route client has to validate in order to get the response.
 app.use('/',userroutes)
+app.use('/api',credroutes)
 app.listen(port,()=>{
     console.log('server is rrunning on'+port)
 })

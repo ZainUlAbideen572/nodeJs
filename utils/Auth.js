@@ -1,22 +1,31 @@
 const jwt=require('jsonwebtoken')
-function basicauth(req,res,next){
-    // credentials has to be sent in headers 
-    // in headers there will be authorization header which convert username and password into base64 string and append basic
-    const tokens=req.headers.authorization.split(' ')
-    const creds=tokens[1]
-    let buff=new Buffer(creds,'base64')
-    let  decodecreds=buff.toString('ascii')
-    const credTokens=decodecreds.split(':')
-    console.log(credTokens)
-    const[username,Password]=credTokens
-    if(username=='mdzayan'&& Password=='12345678'){
-        next();
-    }else{
+function basicAuth(req, res, next) {
 
-        res.status(401)
-        res.send('unauthorised')
+    if (!req.headers.authorization) {
+        res.status(401);
+        res.send('Unauthorized');
+        return;
+    }
+
+    const tokens = req.headers.authorization.split(' ');
+    const creds = tokens[1];
+
+
+    let buff = new Buffer(creds, 'base64');
+    let decodedCreds = buff.toString('ascii');
+
+    const credTokens = decodedCreds.split(':');
+
+    const [username, password] = credTokens;
+
+    if (username === 'admin' && password === 'password') {
+        next();
+    } else {
+        res.status(401);
+        res.send('Unauthorised');
     }
 }
+    
 
     function tokenAuth(req,res,next){
         const tokens=req.headers.authorization.split('')
@@ -32,5 +41,5 @@ function basicauth(req,res,next){
     }
 
 module.exports={
-  basicauth,tokenAuth
+  basicAuth,tokenAuth
 }
