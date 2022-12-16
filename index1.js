@@ -4,11 +4,14 @@ const port=3000;
 const indexroute=require('./authentication.js/indexroute')
 app.use(express.json())
 function fn(req,res,next){
-    const tokens=req.headers.authorization.split('')
+    console.log("auth");
+
+    const tokens=req.headers.authorization.split()
     const creds=tokens[1]
     let buff=new Buffer(creds,'base64')
     let decodecreds=buff.toString('ascii')
-    const credTokens=decodecreds.split(':')
+    const credTokens=decodecreds.split(': ')
+    console.log(credTokens)
     const[userName,password]=credTokens
     if(userName==='admin'  && password==='password'){
         next();
