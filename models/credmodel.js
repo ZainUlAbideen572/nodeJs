@@ -1,8 +1,8 @@
 const mongoose=require('mongoose')
 const schema=new mongoose.Schema({
-    Name:{type:String},
-    email:{type:String},
-    Password:{type:String}
+    name:{type:String},
+    email:{type:String,unique:true},
+    password:{type:String}
 })
-const model=new mongoose.model('detail',schema)
+const model=mongoose.model('detail',schema)
 module.exports=model

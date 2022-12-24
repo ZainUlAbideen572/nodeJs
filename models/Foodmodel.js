@@ -4,5 +4,5 @@ const schema=new mongoose.Schema({
     Origin:{type:String},
     Price:{type:String}
 })
-const model=new mongoose.model('foods',schema)
+const model=new mongoose.model('food',schema)
 module.exports=model;

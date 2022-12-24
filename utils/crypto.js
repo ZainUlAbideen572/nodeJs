@@ -4,7 +4,7 @@ const hash=(plaintext)=>{
 }    
 const verify=(plaintext,hash)=>{
     return bcrypt.compare(plaintext,hash)
-}   
+}
 module.exports={
     hash,verify
 }

@@ -1,6 +1,6 @@
 const credsrpstry=require('./../repository/credsrpstry')
 const crypto=require('./../utils/crypto')
-const bcrypt=require('bcrypt')
+// const bcrypt=require('bcrypt')
 const signup=async(req,res)=>{
   const hash=await crypto.hash(req.body.Password,1)
    req.body.Password=hash
@@ -16,7 +16,7 @@ const signin=async(req,res)=>{
         res.status(400)
         res.send('invalid')
     }
-    const valid=await crypto.verify(data.Password,user.Password)
+    const valid=await crypto.verify(data.password,user.password)
     if(valid){
         res.status(201)
         res.send('userexists')

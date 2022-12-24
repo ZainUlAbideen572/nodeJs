@@ -6,6 +6,9 @@ const post=(data)=>{
     const product=new foodmodel(data)
     return  product.save()
 }
+const remove=(id)=>{
+    return foodmodel.remove({_id:id})
+}
 module.exports={
-    get,post
+    get,post,remove
 }

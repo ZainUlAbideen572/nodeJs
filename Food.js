@@ -5,7 +5,7 @@ const bodyparser=require('body-parser')
 const foodroutes=require('./routes/Foodroutes')
 const morgan=require('morgan')
 const port=5000
-mongoose.connect(' mongodb://127.0.0.1:27017/cuisines',()=>{
+mongoose.connect('mongodb://127.0.0.1:27017/cuisines',()=>{
     console.log('connected to db')
 })
 app.use(express.json())

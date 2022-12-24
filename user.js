@@ -3,8 +3,11 @@ const app=express();
 const mongoose=require('mongoose')
 const bodyparser=require('body-parser')
 mongoose.connect('mongodb://127.0.0.1:27017/users',()=>{
-      console.log('sever is connected to db')
+      console.log('connected to db')
 })
+// .catch((err)=>{
+// console.log('Not connected to db',err)
+// })
 const port=5000;
 // const auth=require('./utils/Auth')
 const userroutes=require('./routes/userroute')
@@ -16,6 +19,6 @@ app.use(express.json())
 //  for everyproduct or route client has to validate in order to get the response.
 app.use('/',userroutes)
 app.use('/api',credroutes)
-app.listen(port,()=>{
-    console.log('server is rrunning on'+port)
+app.listen(5000,()=>{
+    console.log('server is running on'+port)
 })
