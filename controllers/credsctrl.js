@@ -18,8 +18,14 @@ const signin=async(req,res)=>{
     }
     const valid=await crypto.verify(data.password,user.password)
     if(valid){
+        const token=jwt.sign({email:email},'secret',{
+            expiresin:'1d'
+        })
         res.status(201)
-        res.send('userexists')
+        res.json({
+            email:user.email,
+            token:user.token
+        })
     }else{
         res.status(400).send('invalid')
     }

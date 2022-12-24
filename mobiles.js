@@ -13,7 +13,7 @@ const filestream=fs.createWriteStream(filepath,{flags:'a'})
 app.use(morgan('combined',{stream:filestream}))
 // importing morgan and logging the combined information and passsing it to the filestream.
 
-app.use(auth.basicAuth)
+app.use(auth.tokenAuth)
 app.use('/',mobileroutes)
 app.listen(port,()=>{
     console.log('server is rrunning on'+port)
